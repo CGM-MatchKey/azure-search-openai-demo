@@ -108,13 +108,13 @@ def test_chat(sized_page: Page, live_server_url: str):
     expect(page.get_by_role("button", name="Developer settings")).to_be_enabled()
 
     # Ask a question and wait for the message to appear
-    page.get_by_placeholder("Type a new question (e.g. does my plan cover annual eye exams?)").click()
-    page.get_by_placeholder("Type a new question (e.g. does my plan cover annual eye exams?)").fill(
-        "Whats the dental plan?"
+    page.get_by_placeholder("Type a new question (e.g. how many new flats will be in this development?)").click()
+    page.get_by_placeholder("Type a new question (e.g. how many new flats will be in this development?)").fill(
+        "How many parking spaces?"
     )
     page.get_by_role("button", name="Submit question").click()
 
-    expect(page.get_by_text("Whats the dental plan?")).to_be_visible()
+    expect(page.get_by_text("How many parking spaces?")).to_be_visible()
     expect(page.get_by_text("The capital of France is Paris.")).to_be_visible()
     expect(page.get_by_role("button", name="Clear chat")).to_be_enabled()
 
@@ -135,7 +135,7 @@ def test_chat(sized_page: Page, live_server_url: str):
 
     # Clear the chat
     page.get_by_role("button", name="Clear chat").click()
-    expect(page.get_by_text("Whats the dental plan?")).not_to_be_visible()
+    expect(page.get_by_text("How many parking spaces?")).not_to_be_visible()
     expect(page.get_by_text("The capital of France is Paris.")).not_to_be_visible()
     expect(page.get_by_role("button", name="Clear chat")).to_be_disabled()
 
@@ -181,13 +181,13 @@ def test_chat_customization(page: Page, live_server_url: str):
     page.locator("button").filter(has_text="Close").click()
 
     # Ask a question and wait for the message to appear
-    page.get_by_placeholder("Type a new question (e.g. does my plan cover annual eye exams?)").click()
-    page.get_by_placeholder("Type a new question (e.g. does my plan cover annual eye exams?)").fill(
-        "Whats the dental plan?"
+    page.get_by_placeholder("Type a new question (e.g. how many new flats will be in this development?)").click()
+    page.get_by_placeholder("Type a new question (e.g. how many new flats will be in this development?)").fill(
+        "How many parking spaces?"
     )
     page.get_by_role("button", name="Submit question").click()
 
-    expect(page.get_by_text("Whats the dental plan?")).to_be_visible()
+    expect(page.get_by_text("How many parking spaces?")).to_be_visible()
     expect(page.get_by_text("The capital of France is Paris.")).to_be_visible()
     expect(page.get_by_role("button", name="Clear chat")).to_be_enabled()
 
@@ -238,9 +238,9 @@ def test_chat_customization_gpt4v(page: Page, live_server_url: str):
     page.locator("button").filter(has_text="Close").click()
 
     # Ask a question and wait for the message to appear
-    page.get_by_placeholder("Type a new question (e.g. does my plan cover annual eye exams?)").click()
-    page.get_by_placeholder("Type a new question (e.g. does my plan cover annual eye exams?)").fill(
-        "Whats the dental plan?"
+    page.get_by_placeholder("Type a new question (e.g. how many new flats will be in this development?)").click()
+    page.get_by_placeholder("Type a new question (e.g. how many new flats will be in this development?)").fill(
+        "How many parking spaces?"
     )
     page.get_by_label("Submit question").click()
 
@@ -265,13 +265,13 @@ def test_chat_nonstreaming(page: Page, live_server_url: str):
     page.locator("button").filter(has_text="Close").click()
 
     # Ask a question and wait for the message to appear
-    page.get_by_placeholder("Type a new question (e.g. does my plan cover annual eye exams?)").click()
-    page.get_by_placeholder("Type a new question (e.g. does my plan cover annual eye exams?)").fill(
-        "Whats the dental plan?"
+    page.get_by_placeholder("Type a new question (e.g. how many new flats will be in this development?)").click()
+    page.get_by_placeholder("Type a new question (e.g. how many new flats will be in this development?)").fill(
+        "How many parking spaces?"
     )
     page.get_by_label("Submit question").click()
 
-    expect(page.get_by_text("Whats the dental plan?")).to_be_visible()
+    expect(page.get_by_text("How many parking spaces?")).to_be_visible()
     expect(page.get_by_text("The capital of France is Paris.")).to_be_visible()
     expect(page.get_by_role("button", name="Clear chat")).to_be_enabled()
 
@@ -298,13 +298,13 @@ def test_chat_followup_streaming(page: Page, live_server_url: str):
     page.locator("button").filter(has_text="Close").click()
 
     # Ask a question and wait for the message to appear
-    page.get_by_placeholder("Type a new question (e.g. does my plan cover annual eye exams?)").click()
-    page.get_by_placeholder("Type a new question (e.g. does my plan cover annual eye exams?)").fill(
-        "Whats the dental plan?"
+    page.get_by_placeholder("Type a new question (e.g. how many new flats will be in this development?)").click()
+    page.get_by_placeholder("Type a new question (e.g. how many new flats will be in this development?)").fill(
+        "How many parking spaces?"
     )
     page.get_by_label("Submit question").click()
 
-    expect(page.get_by_text("Whats the dental plan?")).to_be_visible()
+    expect(page.get_by_text("How many parking spaces?")).to_be_visible()
     expect(page.get_by_text("The capital of France is Paris.")).to_be_visible()
 
     # There should be a follow-up question and it should be clickable:
@@ -336,13 +336,13 @@ def test_chat_followup_nonstreaming(page: Page, live_server_url: str):
     page.locator("button").filter(has_text="Close").click()
 
     # Ask a question and wait for the message to appear
-    page.get_by_placeholder("Type a new question (e.g. does my plan cover annual eye exams?)").click()
-    page.get_by_placeholder("Type a new question (e.g. does my plan cover annual eye exams?)").fill(
-        "Whats the dental plan?"
+    page.get_by_placeholder("Type a new question (e.g. how many new flats will be in this development?)").click()
+    page.get_by_placeholder("Type a new question (e.g. how many new flats will be in this development?)").fill(
+        "How many parking spaces?"
     )
     page.get_by_label("Submit question").click()
 
-    expect(page.get_by_text("Whats the dental plan?")).to_be_visible()
+    expect(page.get_by_text("How many parking spaces?")).to_be_visible()
     expect(page.get_by_text("The capital of France is Paris.")).to_be_visible()
 
     # There should be a follow-up question and it should be clickable:
@@ -375,12 +375,12 @@ def test_ask(sized_page: Page, live_server_url: str):
     if page.get_by_role("button", name="Toggle menu").is_visible():
         page.get_by_role("button", name="Toggle menu").click()
     page.get_by_role("link", name="Ask a question").click()
-    page.get_by_placeholder("Example: Does my plan cover annual eye exams?").click()
-    page.get_by_placeholder("Example: Does my plan cover annual eye exams?").fill("Whats the dental plan?")
-    page.get_by_placeholder("Example: Does my plan cover annual eye exams?").click()
+    page.get_by_placeholder("Example: How many flats will be affordable housing?").click()
+    page.get_by_placeholder("Example: How many flats will be affordable housing?").fill("How many parking spaces?")
+    page.get_by_placeholder("Example: How many flats will be affordable housing?").click()
     page.get_by_label("Submit question").click()
 
-    expect(page.get_by_text("Whats the dental plan?")).to_be_visible()
+    expect(page.get_by_text("How many parking spaces?")).to_be_visible()
     expect(page.get_by_text("The capital of France is Paris.")).to_be_visible()
 
 
